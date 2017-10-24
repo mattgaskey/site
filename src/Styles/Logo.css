@@ -1,0 +1,10 @@
+.heart-rate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heart-rate__line {
+  transition: stroke-dashoffset 1s cubic-bezier(1,0,.37,1);
+}

@@ -1,0 +1,14 @@
+.header {
+	height: 10em;
+	background: var(--main);
+	text-transform: uppercase; 
+}
+
+.title__matt {
+	text-align: center;
+	font-size: 4em;
+	line-height: 10rem;
+	color: var(--textAlt);
+  font-weight: 700;
+  letter-spacing: 10px;
+}
