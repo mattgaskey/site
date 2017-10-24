@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background: var(--lightAccent);
-  
+
 }
 
 .container__coder, .container__analyst {
@@ -29,6 +29,8 @@
 .hero p {
   font-size: 1.5em;
 }
+
+
 
 
 
@@ -304,5 +306,23 @@
   }
   100% {
     border-radius: 0 50% 50% 0 / 90%;
+  }
+}
+
+
+@media all and (max-width: 986px) {
+  .hero {
+    flex-direction: column;
+  }
+  [class^='container'] {
+    width: 100%;
+    margin: 10px;
+    padding: 0;
+  }
+  [class^='container'] > p {
+    padding: 0 30px;
+  }
+  .container__analyst {
+    margin-bottom: 100px;
   }
 }

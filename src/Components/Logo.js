@@ -4,7 +4,10 @@ import '../Styles/Logo.css';
 const Logo = () => {
 	return (
 		<div className="heart-rate">
-			<svg>
+			<svg 
+				width="160px"
+				height="72px"
+			>
 				<polyline 
 				fill="none" 
 				stroke="#1565c0" 
