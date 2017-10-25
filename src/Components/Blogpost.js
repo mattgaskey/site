@@ -8,8 +8,8 @@ const Blogpost = () => {
 	  	<h1 className="blog-header" id="happy-accidents"><strong>Happy Accidents</strong></h1>
 		<h2 className="blog-header2" id="the-back-story">The Back-Story</h2>
 		<p>I&#39;ve been re-watching a lot of episodes of the classic Bob Ross painting series
-		<a href="https://www.youtube.com/user/BobRossInc
-"><em>The Joy of Painting</em></a> lately.  Maybe it&#39;s the stress and pressure of wanting
+		<a href="https://www.youtube.com/user/BobRossInc"><em>The Joy of Painting</em></a> lately.  
+		Maybe it&#39;s the stress and pressure of wanting
 		to dive into web development at this stage in my life that makes me reach out
 		for something calming at the end of the work day.  Maybe I&#39;m just really into 
 		happy little trees and clouds.</p>

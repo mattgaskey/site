@@ -3,8 +3,9 @@
 	padding-top: 1em;
 }
 
-.blog_header2 {
+.blog-header2 {
 	padding-top: 2em;
+	font-size: 2em;
 }
 
 article {
@@ -20,10 +21,10 @@ p {
 
 blockquote {
 	display: block;
-	background: lavender;
+	background: #e3f2fd;
 	padding: 1em 1em 1em 3em;
 	margin: 1em 0 1em 2em;
-	border-left: solid 3px #002b36;
+	border-left: solid 3px var(--accent);
 	font-style: italic;
 }
 

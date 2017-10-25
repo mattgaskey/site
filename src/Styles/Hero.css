@@ -1,24 +1,27 @@
 .hero {
+  display: flex;
 	width: 100vw;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
   background: var(--lightAccent);
-	min-height: 2000px;
 }
 
 .container__coder, .container__analyst {
   width: 33%;
+  flex: 1 0 auto;
   text-align: center;
   padding-top: 2em;
 }
 
 .container__coder {
-  margin-left: 40px;
+  order: 1;
+  padding-left: 40px;
 }
 
 .container__analyst {
-  margin-right: 40px;
+  order: 3;
+  padding-right: 40px;
 }
 
 .hero__title {
@@ -44,7 +47,9 @@
 
 
 .container__avatar {
-  width: 33%;
+  flex: 1;
+  order: 2;
+  margin: 0;
   padding-top: 6em;
 }
 
@@ -315,7 +320,7 @@
 }
 
 
-@media all and (max-width: 986px) {
+@media all and (max-width: 1200px) {
   .hero {
     flex-direction: column;
   }

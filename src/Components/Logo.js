@@ -2,9 +2,6 @@ import React from 'react';
 import '../Styles/Logo.css';
 
 class Logo extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	componentDidMount() {
 		const line = document.querySelector(".heart-rate__line");
@@ -25,7 +22,7 @@ class Logo extends React.Component {
 		line.style.strokeDasharray = `${totalLength} ${totalLength}`;
 		line.style.strokeDashoffset = totalLength;
 
-		const heartBeat = setInterval(function() {
+		setInterval(function() {
 			line.style.strokeDashoffset -= totalLength;
 		}, 1500);
 	}
