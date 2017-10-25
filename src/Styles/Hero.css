@@ -1,24 +1,28 @@
 .hero {
 	width: 100vw;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: var(--lightAccent);
-
+	min-height: 2000px;
 }
 
 .container__coder, .container__analyst {
   width: 33%;
   text-align: center;
-  padding: 100px 0;
+  padding-top: 2em;
 }
 
 .container__coder {
-  margin-left: 200px;
+  margin-left: 40px;
 }
 
 .container__analyst {
-  margin-right: 200px;
+  margin-right: 40px;
+}
+
+.hero__title {
+	font-family: monospace;
 }
 
 .hero h2 {
@@ -41,6 +45,7 @@
 
 .container__avatar {
   width: 33%;
+  padding-top: 6em;
 }
 
 .circle {

@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from './Nav';
 import Hero from './Hero';
 import Header from './Header';
+import Blogpost from './Blogpost';
 import '../index.css';
 
 class Main extends React.Component {

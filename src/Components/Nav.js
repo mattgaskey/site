@@ -7,26 +7,32 @@ class Nav extends React.Component {
 		super(props);
 
 		this.state = {
-			scroll: window.scrollY
+			
 		};
 
 		this.handleScroll = this.handleScroll.bind(this);
 	}
 
 	handleScroll() {
-		console.log('scrolled');
 		this.setState({scroll: window.scrollY});
 	}
 
 	componentDidMount() {
-		console.log('Component mounted');
+		const el = document.querySelector('nav');
+		this.setState({top: el.offsetTop, height: el.clientHeight});
 		window.addEventListener('scroll', this.handleScroll);
+	}
+
+	componentDidUpdate() {
+		this.state.scroll > this.state.top + this.state.height ? 
+			document.body.style.paddingTop = `${this.state.top}px` :
+			document.body.style.paddingTop = 0;
 	}
 
 	render() {
 		return (
 			<div>
-				<nav className={this.state.scroll > 160 ? "fixed-nav" : ""}>
+				<nav className={this.state.scroll > this.state.top + this.state.height ? "fixed-nav" : ""}>
 					<ul>
 				    <li className="logo">
 			    		<Logo />

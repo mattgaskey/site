@@ -1,0 +1,358 @@
+import React from 'react';
+import '../Styles/Blogpost.css';
+import Pen from './Pen';
+
+const Blogpost = () => {
+	return (
+		<article>
+	  	<h1 className="blog-header" id="happy-accidents"><strong>Happy Accidents</strong></h1>
+		<h2 className="blog-header2" id="the-back-story">The Back-Story</h2>
+		<p>I&#39;ve been re-watching a lot of episodes of the classic Bob Ross painting series
+		<a href="https://www.youtube.com/user/BobRossInc
+"><em>The Joy of Painting</em></a> lately.  Maybe it&#39;s the stress and pressure of wanting
+		to dive into web development at this stage in my life that makes me reach out
+		for something calming at the end of the work day.  Maybe I&#39;m just really into 
+		happy little trees and clouds.</p>
+		<p>Or perhaps Bob is the one true source of knowledge and wisdom.  </p>
+		<p>I am inclinded to doubt the latter, but one of his many mantras has stuck with 
+		me over the past few weeks.  To quote the guru:</p>
+		<blockquote>
+		<p>In our world, there are no mistakes, only happy accidents.</p>
+		</blockquote>
+		<p>Of course, Bob (and I feel comfortable continuing on a first-name basis with
+		him) is referring to the ease with which errant strokes can be reincorporated into
+		other elements with his wet-on-wet oil painting technique.  However, we all know
+		that Bob was really trying to tell us not to be afraid to take chances, to 
+		make mistakes, and maybe more importantly, to own those mistakes.  We should 
+		see mistakes as accidents, and accidents as points of inspiration.</p>
+		<p>Jumping into the world of web development has provided many opprtunities to make
+		mistakes.  This is not a field where memorizing theory will get you very far.
+		You have to dig in and get your fingers dirty and code, code, code.  Luckily, the
+		web is chock full of consequence-free environments where beginners can practice
+		the fundamentals without fear of taking down an entire client website.</p>
+		<h2 className="blog-header2" id="the-set-up">The Set Up</h2>
+		<p><a href="https://hackerrank.com">HackerRank.com</a> has a set of challenges that will
+		let you have all the happy little JavaScript accidents you like.  I went through
+		them in a day&#39;s time (90% of them are quite fundamental) and one particular
+		challenge caused a real-life face palm.  (For the younger generation out there, 
+		people used to actually slap themselves in the forehead when they made stupid
+		mistakes instead of tweeting out gifs.)</p>
+		<p>Here&#39;s the gist of the task:</p>
+		<blockquote>
+		<p>We want to create nine buttons enclosed in a div, laid out so they form a 3x3 grid. Each button has a distinct
+		label from 1 to 9, and the labels on the outer buttons must rotate in the clockwise direction each time we click
+		the middle button. </p>
+		<p>Each element in the document must have an id, [whose]  initial innerHTML labels must have the following button ids:</p>
+		<table border='1'>
+			<thead>
+				<tr>
+					<th>innerHTML</th>
+					<th>id</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>btn1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>btn2</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>btn3</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>btn4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>btn5</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td>btn6</td>
+				</tr>
+				<tr>
+					<td>7</td>
+					<td>btn7</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td>btn8</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>btn9</td>
+				</tr>
+			</tbody>
+		</table>
+		</blockquote>
+		<p>Sounds simple enough, right?  You essentially have a phone pad layout and when you 
+		click the &#39;5&#39;, the other button texts rotate clockwise.  I immediately jumped in and
+		set my html according to the spec:</p>
+		<pre><code>{`
+<div id='btns' class='btns'>
+  <button class='btn' id='btn1'><span>1</span></button>
+  <button class='btn' id='btn2'><span>2</span></button>
+  <button class='btn' id='btn3'><span>3</span></button>
+  <button class='btn' id='btn4'><span>4</span></button>
+  <button class='btn' id='btn5'><span>5</span></button>
+  <button class='btn' id='btn6'><span>6</span></button>
+  <button class='btn' id='btn7'><span>7</span></button>
+  <button class='btn' id='btn8'><span>8</span></button>
+  <button class='btn' id='btn9'><span>9</span></button>
+</div>`}
+		</code></pre>
+		<p>I&#39;ve got my buttons, numbered 1 through 9 with corresponding ids.  Now I just need to 
+		attach a simple click listener to btn5 that will update the <code>.btn</code> class with a 
+		<code>transform: rotate(90deg)</code> on all the other buttons.  That way, I can handle the 
+		rotation with pure CSS and my solution will be nice and JS-light:</p>
+		<p>CSS:</p>`
+		<pre><code>{`
+.btns {
+    width: 75%;
+}
+
+.btn {
+    width: 30%;
+    height: 48px;
+    font-size: 24px;
+}
+
+.btn &gt; span {
+  display: inline-block;
+}`}
+		</code></pre>
+		<p>JS:</p>
+		<pre><code>{`
+const btn5 = document.querySelector('#btn5');
+const btns = document.querySelectorAll('button');
+let rotation = 0;
+
+function rotateThem() {
+  rotation += 90;
+  btns.forEach(btn => {
+    if (btn.id !== 'btn5') {
+      btn.children[0].style = \`transform: rotate($\{rotation}deg)\`;
+    }
+  });
+}
+
+btn5.addEventListener('click', rotateThem);`}
+		</code></pre>
+		<Pen 
+			hash="boJoxB"
+			user="mattgaskey"
+			defaultTab="result"
+		/>
+		<p>There!  That works beautifully!  Click the &#39;5&#39; and all the other numbers
+		rotate clockwise.  I was really proud of myself for jumping right in and
+		coding the thing from start to finish and getting a result with minimal
+		Google-ing.  So I fire the code off for testing and...</p>
+		<p>You probably guessed it long before this point in the story, FAIL!</p>
+		<p>(<em>I did pass the CSS requirement, but that&#39;s small comfort when JS is the
+		goal</em>)</p>
+		<h2 className="blog-header2" id="the-punch-line">The Punch Line</h2>
+		<p>How on Earth could I have failed?  There must have been something wrong with the testing module.  I mean, I did exactly what the task instructed me.  Click
+		the &#39;5&#39;, rotate all the others.  It does seem a bit inane of a task.  What&#39;s 
+		the use in seeing a bunch of numbers spinning around in their little boxes
+		anyway?</p>
+		<p>I go back to the task, take a good look at what I should expect to see, and
+		the part of my brain responsible for involuntary reactions catches up with my
+		visual interpeter and lands my palm squarely against my forehead.</p>
+		<p>One big &#39;happy accident&#39;.  Always read the instructions fully before beginning any
+		task.  Lesson number one from every grade starting in elementary school on
+		through university.  Common sense.</p>
+		<p>I&#39;m supposed to shift the number grid clockwise around the &#39;5&#39; when it&#39;s clicked.
+		That&#39;s a much more daunting task.  How the hell am I supposed to do that? I guess,
+		it&#39;s back to the proverbial drawing board.</p>
+		<p>At this point, my immature self would have given up.  I did a task that required not-so-elementary knowledge, used NodeLists, applied listeners, wrote functions, updated 
+		style with JavaScript; I even did it with ES6.  I think of Bob.  Bob says, &quot;Don&#39;t be 
+		immature. Remember, there are NO mistakes.&quot;</p>
+		<p>You&#39;re right Bob.  Let&#39;s figure this thing out.  </p>
+		<p>I&#39;ve already gotten a long way.  I succeeded in targeting a change in all the buttons
+		other than the one that is clicked.  I can use that.  The structure is there, I just
+		need to redefine what change the function is affecting.</p>
+		<p>First things first, I can get rid of those nested spans.  They were only there to act
+		as containers to spin the text (you cannot rotate inline elements, hence the 
+		<code>display: inline-block</code>).  I should also consider what needs to happen onClick.  The innerHTML
+		of the surrounding elements needs to change, leaving the ids in tact.  That means I can&#39;t
+		update the <code>button</code> elements themselves.  </p>
+		<p>The best way to approach this is going to be by dynamically inserting the innerHTML of each 
+		element and updating the data source when <code>btn5</code> is clicked.  That calls for an array.
+		It&#39;s probably also best to set a class on each changeable <code>button</code> element as well.  That
+		gives us a new HTML markup:</p>
+		<pre><code>{`
+<div id='btns' class='btns'>
+  <button class='btn rotating' id='btn1'></button>
+  <button class='btn rotating' id='btn2'></button>
+  <button class='btn rotating' id='btn3'></button>
+  <button class='btn rotating' id='btn4'></button>
+  <button class='btn' id='btn5'>5</button>
+  <button class='btn rotating' id='btn6'></button>
+  <button class='btn rotating' id='btn7'></button>
+  <button class='btn rotating' id='btn8'></button>
+  <button class='btn rotating' id='btn9'></button>
+</div>`}
+		</code></pre>
+		<p>Our CSS is unchanged.  We&#39;re still working with simple buttons.</p>
+		<p>The JS has to be the star of the show now.  Our buttons no longer have any text.  We&#39;ve
+		got to write a function to loop over the HTML elements and set their <code>textContent</code> to the
+		initial values.  Plus we need an array of numbers to work from.</p>
+		<pre><code>{`
+// use 'let' to initialize the variable, we're going
+// to be updating it as we rotate;
+// don't select btn5, it's value is
+// hard-coded in the HTML and won't change;
+// notice there is no '5' in the array either
+
+const numbers = [1, 2, 3, 4, 6, 7, 8, 9];
+const buttons = document.querySelectorAll('.rotating');
+
+function fillButtonContent(btn, i) {
+  btn.textContent = numbers[i];
+}
+
+buttons.forEach((btn, i) => fillButtonContent(btn, i));`}
+		</code></pre>
+		<p>Our function is abstract, since we&#39;ll need to call it multiple times.  Initially
+		though, calling <code>fillButtonContent</code> will loop over our <code>button</code> nodes and set
+		a number from the array at each index <code>i</code> to the innerHTML.  This will give us
+		the phone dial pad setup we&#39;re looking for.</p>
+		<p>Next, we need to add our event listener and define our event handler, both of
+		which we accomplished in our happy little accident before. This time, we&#39;ll need
+		to look closer at what our handler is doing:</p>
+		<pre><code>{`
+const btn5 = document.querySelector('#btn5');
+
+function rotateThem() {
+  // Do something to the numbers array
+  buttons.forEach((btn, i) => fillButtonContent(btn, i)); 
+}
+
+btn5.addEventListener('click', rotateThem);`}
+		</code></pre>
+		<p>The mechanism is in place; we just need to figure out how to properly manipulate
+		our array so that the numbers move around the &#39;5&#39; in a clockwise fashion.  My first 
+		thought was to simply pop the last value off the end of the array and move it to the
+		front.  This does achieve a <strong>cyclic</strong> pattern, but since our HTML elements are arranged
+		left-to-right, top-to-bottom, we cannot achieve a <strong>circular</strong> pattern with a <strong>linear</strong>
+		change.</p>
+		<p>In layman&#39;s terms, the first time we click, the &#39;3&#39; should move where the &#39;6&#39; is, but 
+		it moves where the &#39;4&#39; is.  I have an interesting mind, but not a beautiful one, so 
+		the proper algorithm doesn&#39;t jump right out at me.  I need to model the effect in order to 
+		understand the pattern.</p>
+		<p>So, what do we expect to see after clicking?  Here&#39;s the lowdown:</p>
+		<pre><code className="markdown">{`
+Initial State:
+| 1 | 2 | 3 |
+| 4 | 5 | 6 |
+| 7 | 8 | 9 |
+
+After First Click:
+| 4 | 1 | 2 |
+| 7 | 5 | 3 |
+| 8 | 9 | 6 |
+
+After Second Click:
+| 7 | 4 | 1 |
+| 8 | 5 | 2 |
+| 9 | 6 | 3 |`}
+		</code></pre>
+		<p>I don&#39;t believe I can write a formula to model this pattern, but I can write a function!
+		First, I need to see if the expected permutations have any kind of pattern when we update our array.  That is, does each click result in the same kind of change in the array?</p>
+		<p>Let&#39;s see:</p>
+		<pre><code>{`
+numbers = [1, 2, 3, 4, 6, 7, 8, 9]
+numbers = [4, 1, 2, 7, 3, 8, 9, 6]
+numbers = [7, 4, 1, 8, 2, 9, 6, 3]`}
+		</code></pre>
+		<p>It may not jump out at you right away, but the expected values in the array after each click
+		do in fact follow a pattern.  That means we can write a simple function that will change
+		the numbers array in such a way that calling <code>fillButtonContent</code> with the updated
+		array will make the numbers travel around the &#39;5&#39; in a clockwise fashion!</p>
+		<p>Let&#39;s write that function:</p>
+		<pre><code>{`
+function enterTheMatrix(arr) {
+  let newArr = [];
+  newArr.push(arr[3]);
+  newArr.push(arr[0]);
+  newArr.push(arr[1]);
+  newArr.push(arr[5]);
+  newArr.push(arr[2]);
+  newArr.push(arr[6]);
+  newArr.push(arr[7]);
+  newArr.push(arr[4]);
+  return newArr;
+}`}
+		</code></pre>
+		<p>The function <code>enterTheMatrix</code> takes in our numbers array, builds a placeholder array,
+		pushes values from the original array to our placeholder array using the pattern we saw
+		in our model, then returns the new array.</p>
+		<p>Putting the whole thing together we get:</p>
+		<pre><code>{`
+const btn5 = document.querySelector('#btn5');
+const buttons = document.querySelectorAll('.rotating');
+let numbers = [1, 2, 3, 4, 6, 7, 8, 9];
+
+buttons.forEach((btn, i) => fillButtonContent(btn, i));
+
+function rotateThem() {
+  numbers = enterTheMatrix(numbers);
+  buttons.forEach((btn, i) => fillButtonContent(btn, i)); 
+}
+
+function fillButtonContent(btn, i) {
+  btn.textContent = numbers[i];
+}
+
+function enterTheMatrix(arr) {
+  let newArr = [];
+  newArr.push(arr[3]);
+  newArr.push(arr[0]);
+  newArr.push(arr[1]);
+  newArr.push(arr[5]);
+  newArr.push(arr[2]);
+  newArr.push(arr[6]);
+  newArr.push(arr[7]);
+  newArr.push(arr[4]);
+  return newArr;
+}
+
+btn5.addEventListener('click', rotateThem);`}
+		</code></pre>
+		<p>On page load, the buttons which will rotate are assigned an innerHTML value
+		from the numbers array. We target our <code>btn5</code> and attach a click listener 
+		which fires the event handler <code>rotateThem</code>.  The event handler runs <code>enterTheMatrix</code>, which gives us a new array.  We use that array to run our
+		original <code>fillButtonContent</code> to update the button texts.</p>
+		<p>And that&#39;s it!</p>
+		<Pen 
+			hash="GMLOqN"
+			user="mattgaskey"
+			defaultTab="result"
+		/>
+		<h2 className="blog-header2" id="what-did-we-learn-">What did we learn?</h2>
+		<p>Well, first off, the major takeaway from our happy accident was to make sure
+		to <strong>always</strong> understand your task before starting.  It might feel like diving
+		in and getting your hands dirty is the best way to accomplish anything, but 
+		taking a few minutes to understand what you need to accomplish can save a lot
+		of time and headache down the road.</p>
+		<p>Second, learn from your mistakes.  You make them, but they can&#39;t break you if
+		you analyze what you&#39;ve done wrong.  That may mean re-reading the requirements,
+		Google-ing for help, scrolling forums or asking co-workers (highly recommended,
+		if you have them).  Own your mistakes and they will begin to feel like self-
+		teaching moments.</p>
+		<p>Third, don&#39;t scrap everything.  A lot of what developers do is pattern-based.  If
+		you focus on coding in patterns, you set yourself up with strong frameworks on
+		which you build your code.  Any mistakes you make therein can usually be
+		corrected without having to start over from scratch.  There is no need to 
+		abandon a strong foundation, just because you rushed some execution.</p>
+		<p>Finally, Bob Ross is eternal.</p>
+	</article>
+	);
+}
+
+export default Blogpost;
