@@ -326,10 +326,10 @@
   }
   [class^='container'] {
     width: 100%;
-    margin: 10px;
+    margin: 10px auto;
     padding: 0;
   }
-  [class^='container'] > p {
+  .hero p {
     padding: 0 30px;
   }
   .container__analyst {

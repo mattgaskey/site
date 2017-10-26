@@ -7,7 +7,7 @@ const Hero = () => {
 		<div className="hero">
 	  	<div className="container__coder">
 	  		<h2 className="hero__title">&lt;coder&gt;</h2>
-	  		<p>I like building apps, websites and games.  At the moment, I'm really digging deep into CSS, SVG and JS2016, trying to make the most out of the integral technologies that run the Web.  I build daily snippets, keep up my GitHub repositories, and write blog posts to share what I do.
+	  		<p>I like building apps, websites and games.  At the moment, I'm really digging deep into CSS, SVG and ES6, trying to make the most out of the technologies that run the Web.  I build daily snippets, keep up my GitHub repositories, and write blog posts to share what I do.
 	  		</p>
 	  	</div>
 	  	<div className="container__avatar">

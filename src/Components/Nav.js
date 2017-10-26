@@ -6,9 +6,7 @@ class Nav extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			
-		};
+		this.state = {};
 
 		this.handleScroll = this.handleScroll.bind(this);
 	}
@@ -19,20 +17,20 @@ class Nav extends React.Component {
 
 	componentDidMount() {
 		const el = document.querySelector('nav');
-		this.setState({top: el.offsetTop, height: el.clientHeight});
+		this.setState({top: el.offsetTop, height: el.offsetHeight});
 		window.addEventListener('scroll', this.handleScroll);
 	}
 
 	componentDidUpdate() {
-		this.state.scroll > this.state.top + this.state.height ? 
-			document.body.style.paddingTop = `${this.state.top}px` :
+		this.state.scroll > this.state.top ? 
+			document.body.style.paddingTop = `${this.state.height}px` :
 			document.body.style.paddingTop = 0;
 	}
 
 	render() {
 		return (
 			<div>
-				<nav className={this.state.scroll > this.state.top + this.state.height ? "fixed-nav" : ""}>
+				<nav className={this.state.scroll > this.state.top ? "fixed-nav" : ""}>
 					<ul>
 				    <li className="logo">
 			    		<Logo />
