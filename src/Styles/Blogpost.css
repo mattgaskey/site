@@ -14,7 +14,12 @@ article {
 	padding-bottom: 4em;
 }
 
-p {
+article ol, article ul {
+	margin: 1em;
+	padding-left: 1em;
+}
+
+article p {
 	font-size: 1.2em;
 	padding: .5em 0;
 }

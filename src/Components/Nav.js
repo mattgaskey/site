@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Link, NavLink } from 'react-router-dom';
 import '../Styles/Nav.css';
 import Logo from './Logo';
 
@@ -35,11 +36,11 @@ class Nav extends React.Component {
 				    <li className="logo">
 			    		<Logo />
 				    </li>
-				    <li>Home</li>
-				    <li>About</li>
-				    <li>Images</li>
-				    <li>Locations</li>
-				    <li>Blog</li>
+				    <NavLink exact to="/"><li>Home</li></NavLink>
+				    <NavLink to="/about"><li>About</li></NavLink>
+				    <NavLink to="/images"><li>Images</li></NavLink>
+				    <NavLink to="'locations"><li>Locations</li></NavLink>
+				    <NavLink to="/blog"><li>Blog</li></NavLink>
 				  </ul>
 			  </nav>
 			</div>
