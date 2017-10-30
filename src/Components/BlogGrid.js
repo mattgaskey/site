@@ -36,8 +36,7 @@ class BlogGrid extends React.Component {
 									</div>
 									<div className="blog__item-snippet">{post.snippet}</div>
 									<div className="blog__item-link">
-									<Link to={`/blog/${titleSlug}`}
-												params={{content: post.content, slug: titleSlug}}
+									<Link to={{pathname: `/blog/${post.postID}/${titleSlug}`, content: post.content}}
 									>Read more &rarr;</Link>
 									</div>
 								</div>

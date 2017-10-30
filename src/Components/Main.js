@@ -22,7 +22,7 @@ class Main extends React.Component {
 				<Nav />
 				<Route exact path="/" component={Hero} />
 				<Route exact path="/blog" component={BlogGrid} />
-				<Route path="/blog/:titleSlug" component={Blogpost} />
+				<Route path="/blog/:id/:titleSlug" component={Blogpost} />
 			</div>
 		);
 	}

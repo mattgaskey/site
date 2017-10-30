@@ -1,9 +1,9 @@
-.blog-header {
+article h1 {
 	font-size: 3em;
 	padding-top: 1em;
 }
 
-.blog-header2 {
+article h2 {
 	padding-top: 2em;
 	font-size: 2em;
 }
@@ -24,7 +24,7 @@ article p {
 	padding: .5em 0;
 }
 
-blockquote {
+article blockquote {
 	display: block;
 	background: #e3f2fd;
 	padding: 1em 1em 1em 3em;
@@ -33,10 +33,10 @@ blockquote {
 	font-style: italic;
 }
 
-table {
+article table {
 	margin: 1em;
 }
 
-pre > code {
+article pre > code {
 	padding: 1em 2em 2em !important;
 }
