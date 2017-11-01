@@ -5,6 +5,7 @@
   align-items: flex-start;
   justify-content: center;
   background: var(--lightAccent);
+  padding-bottom: 80px;
 }
 
 .container__coder, .container__analyst {

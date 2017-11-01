@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Nav from './Nav';
-import Hero from './Hero';
+import Index from './Index';
 import Header from './Header';
 import BlogGrid from './BlogGrid';
 import Blogpost from './Blogpost';
@@ -20,7 +20,7 @@ class Main extends React.Component {
 			<div>
 				<Header />
 				<Nav />
-				<Route exact path="/" component={Hero} />
+				<Route exact path="/" component={Index} />
 				<Route exact path="/blog" component={BlogGrid} />
 				<Route path="/blog/:id/:titleSlug" component={Blogpost} />
 			</div>

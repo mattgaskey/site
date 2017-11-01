@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Styles/Blogpost.css';
-import Pen from './Pen';
+//import Pen from './Pen';
 import Loading from './Loading';
 
 const Blogpost = (props) => (
