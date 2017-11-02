@@ -31,7 +31,7 @@ const Hero = () => {
 			</div>
 			<div className="container__analyst">
 				<h2 className="hero__title">&lt;analyst&gt;</h2>
-		  	<p>My background and training are centered around analytics.  If it's worth putting on the Web, it's worth knowing what users are doing with it.  I am Google Analytics certified and a master Tag Manager wrangler.</p>
+		  	<p>My background and training are centered around analytics.  If it's worth putting on the Web, it's worth knowing what users are doing with it.  I am Google Analytics certified and a master Tag Manager wrangler.  I like clean implementations that let the data flow!</p>
 		  </div>
 		</div>
 	);

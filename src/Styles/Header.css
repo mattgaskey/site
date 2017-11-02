@@ -12,3 +12,9 @@
   font-weight: 700;
   letter-spacing: 10px;
 }
+
+@media all and (max-width: 800px) {
+	.lastname {
+		display: none;
+	}
+}

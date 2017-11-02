@@ -1,10 +1,11 @@
 .hero {
   display: flex;
-	width: 100vw;
+	max-width: 1200px;
+	margin: 0 auto;
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  background: var(--lightAccent);
+  /*background: var(--lightAccent);*/
   padding-bottom: 80px;
 }
 
@@ -20,9 +21,19 @@
   padding-left: 40px;
 }
 
+.container__coder p {
+	text-align: left;
+	padding: 0 10px 0 0;
+}
+
 .container__analyst {
   order: 3;
   padding-right: 40px;
+}
+
+.container__analyst p {
+	text-align: right;
+	padding: 0 0 0 10px;
 }
 
 .hero__title {
@@ -35,7 +46,7 @@
 }
 
 .hero p {
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 
@@ -321,7 +332,10 @@
 }
 
 
-@media all and (max-width: 1200px) {
+@media all and (max-width: 1000px) {
+	:root {
+		--size: 250px;
+	}
   .hero {
     flex-direction: column;
   }
@@ -332,8 +346,12 @@
   }
   .hero p {
     padding: 0 30px;
+    text-align: center;
   }
   .container__analyst {
     margin-bottom: 100px;
+  }
+  .container__avatar {
+  	margin-top: 40px;
   }
 }
