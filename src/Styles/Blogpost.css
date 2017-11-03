@@ -9,12 +9,13 @@ article h2 {
 }
 
 article {
-	max-width: 960px;
-	margin: 0 10%;
+	max-width: 720px;
+	margin: 0 auto;
 	padding-bottom: 4em;
 }
 
 article ol, article ul {
+	font-size: 1.1em;
 	margin: 1em;
 	padding-left: 1em;
 }
@@ -39,4 +40,10 @@ article table {
 
 article pre > code {
 	padding: 1em 2em 2em !important;
+}
+
+@media all and (max-width: 880px) {
+	article {
+		margin: 0 10%;
+	}
 }

@@ -5,7 +5,6 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  /*background: var(--lightAccent);*/
   padding-bottom: 80px;
 }
 
@@ -43,6 +42,7 @@
 .hero h2 {
   font-size: 3em;
   line-height: 3em;
+  font-weight: 700;
 }
 
 .hero p {
